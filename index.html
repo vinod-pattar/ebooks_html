@@ -273,30 +273,44 @@
         </div>
     </main>
 
-    <div class="testimonial-slider py-5">
+    <div class="py-5 bg-primary mb-5">
         <div class="container">
             <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
+            <div class="carousel-indicators mt-5">
+                <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+                <div class="carousel-inner w-75 mx-auto">
                     <div class="carousel-item active">
-                        <div class="testimonial-item">
-                            <p class="testimonial-text">"This product has completely transformed my workflow. I can't imagine working without it now!"</p>
-                            <p class="testimonial-user">John Doe</p>
-                            <p class="testimonial-place">New York, USA</p>
-                        </div>
+                        <figure class="text-center py-5">
+                            <blockquote class="blockquote">
+                              <p class="text-white">"This product has completely transformed my workflow. I can't imagine working without it now!"</p>
+                            </blockquote>
+                            <figcaption class="blockquote-footer text-light">
+                                John Doe <cite title="Source Title">New York, USA</cite>
+                            </figcaption>
+                          </figure>
                     </div>
                     <div class="carousel-item">
-                        <div class="testimonial-item">
-                            <p class="testimonial-text">"The customer support team is phenomenal. They went above and beyond to solve my issues."</p>
-                            <p class="testimonial-user">Jane Smith</p>
-                            <p class="testimonial-place">London, UK</p>
-                        </div>
+                        <figure class="text-center py-5">
+                            <blockquote class="blockquote">
+                              <p class="text-white">"The customer support team is phenomenal. They went above and beyond to solve my issues."</p>
+                            </blockquote>
+                            <figcaption class="blockquote-footer text-light">
+                                Jane Smith <cite title="Source Title">London, UK</cite>
+                            </figcaption>
+                          </figure>
                     </div>
                     <div class="carousel-item">
-                        <div class="testimonial-item">
-                            <p class="testimonial-text">"I've recommended this to all my colleagues. It's a game-changer for our industry."</p>
-                            <p class="testimonial-user">Mike Johnson</p>
-                            <p class="testimonial-place">Sydney, Australia</p>
-                        </div>
+                        <figure class="text-center py-5">
+                            <blockquote class="blockquote">
+                              <p class="text-white">"I've recommended this to all my colleagues. It's a game-changer for our industry."</p>
+                            </blockquote>
+                            <figcaption class="blockquote-footer text-light">
+                                Mike Johnson <cite title="Source Title">Sydney, Australia</cite>
+                            </figcaption>
+                          </figure>
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
@@ -307,15 +321,89 @@
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
                 </button>
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                </div>
             </div>
         </div>
     </div>
 
+
+    <div class="container my-5">
+        <h2 class="text-center mb-4">Enquiry Form</h2>
+        <div class="row">
+            <div class="col-12 col-md-9 col-lg-6 mx-auto mb-3">
+                <form>
+                    <div class="row">
+                      <!-- First Name -->
+                      <div class="col-md-6 mb-3">
+                        <label for="firstName" class="form-label">First Name</label>
+                        <input type="text" class="form-control" id="firstName" placeholder="Enter your first name" required>
+                      </div>
+              
+                      <!-- Last Name -->
+                      <div class="col-md-6 mb-3">
+                        <label for="lastName" class="form-label">Last Name</label>
+                        <input type="text" class="form-control" id="lastName" placeholder="Enter your last name" required>
+                      </div>
+                    </div>
+              
+                    <div class="row">
+                      <!-- Email -->
+                      <div class="col-md-6 mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                      </div>
+              
+                      <!-- Mobile Number -->
+                      <div class="col-md-6 mb-3">
+                        <label for="mobile" class="form-label">Mobile Number</label>
+                        <input type="tel" class="form-control" id="mobile" placeholder="Enter your mobile number" required>
+                      </div>
+                    </div>
+              
+                    <div class="row">
+                      <!-- Select Books -->
+                      <div class="col-md-6 mb-3">
+                        <label for="books" class="form-label">Select Books</label>
+                        <select class="form-select" id="books" required>
+                          <option selected disabled value="">Choose a book...</option>
+                          <option value="book1">Book 1</option>
+                          <option value="book2">Book 2</option>
+                          <option value="book3">Book 3</option>
+                        </select>
+                      </div>
+                    </div>
+              
+                    <!-- Text Message Box -->
+                    <div class="mb-3">
+                      <label for="message" class="form-label">Message</label>
+                      <textarea class="form-control" id="message" rows="4" placeholder="Your message"></textarea>
+                    </div>
+              
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+            </div>
+        </div>
+        
+      </div>
+
+      <div class="bg-dark py-3">
+        <div class="container">
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+              <div class="col-md-4 d-flex align-items-center">
+                <a href="/" class="mb-3 me-2 mb-md-0 text-white text-decoration-none lh-1">
+                  <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
+                </a>
+                <span class="mb-3 mb-md-0 text-white">© 2024 Company, Inc</span>
+              </div>
+          
+              <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                <li class="ms-3"><a class="text-white" href="#"><i class="bi bi-twitter"></i></a></li>
+                <li class="ms-3"><a class="text-white" href="#"><i class="bi bi-instagram"></i></a></li>
+                <li class="ms-3"><a class="text-white" href="#"><i class="bi bi-facebook"></i></a></li>
+              </ul>
+            </footer>
+          </div>
+      </div>
 
 
 
