@@ -338,20 +338,30 @@
         <h2 class="text-center mb-4">Enquiry Form</h2>
         <div class="row">
             <div class="col-12 col-md-9 col-lg-6 mx-auto mb-3">
-                <form>
+                <form method="POST" id="enquiry-form">
                     <div class="row">
                         <!-- First Name -->
                         <div class="col-md-6 mb-3">
                             <label for="firstName" class="form-label">First Name</label>
-                            <input type="text" class="form-control" id="firstName" placeholder="Enter your first name"
+                            <div class="input-group has-validation">
+                                <input minlength="1" maxlength="128" type="text" class="form-control" id="firstName" placeholder="Enter your first name"
                                 required>
+                                <div class="invalid-feedback">
+                                    Please enter a valid first name.
+                                </div>
+                            </div>
                         </div>
 
                         <!-- Last Name -->
                         <div class="col-md-6 mb-3">
                             <label for="lastName" class="form-label">Last Name</label>
-                            <input type="text" class="form-control" id="lastName" placeholder="Enter your last name"
+                            <div class="input-group has-validation">
+                                <input minlength="2" maxlength="128" type="text" class="form-control" id="lastName" placeholder="Enter your last name"
                                 required>
+                                <div class="invalid-feedback">
+                                    Please enter a valid last name.
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -359,14 +369,24 @@
                         <!-- Email -->
                         <div class="col-md-6 mb-3">
                             <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                            <div class="input-group has-validation">
+                                <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                                <div class="invalid-feedback">
+                                    Please enter a valid email address.
+                                </div>
+                            </div>
                         </div>
 
                         <!-- Mobile Number -->
                         <div class="col-md-6 mb-3">
                             <label for="mobile" class="form-label">Mobile Number</label>
-                            <input type="tel" class="form-control" id="mobile" placeholder="Enter your mobile number"
+                            <div class="input-group has-validation">
+                                <input type="tel" pattern="[0-9]{10}" class="form-control" id="mobile" placeholder="Enter your mobile number"
                                 required>
+                                <div class="invalid-feedback">
+                                    Please enter a valid mobile number.
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -374,19 +394,29 @@
                         <!-- Select Books -->
                         <div class="col-md-6 mb-3">
                             <label for="books" class="form-label">Select Books</label>
-                            <select class="form-select" id="books" required>
-                                <option selected disabled value="">Choose a book...</option>
-                                <option value="book1">Book 1</option>
-                                <option value="book2">Book 2</option>
-                                <option value="book3">Book 3</option>
-                            </select>
+                            <div class="input-group has-validation">
+                                <select class="form-select" id="books" required>
+                                    <option selected disabled value="">Choose a book...</option>
+                                    <option value="book1">Book 1</option>
+                                    <option value="book2">Book 2</option>
+                                    <option value="book3">Book 3</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Please select a book.
+                                </div>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Text Message Box -->
                     <div class="mb-3">
                         <label for="message" class="form-label">Message</label>
-                        <textarea class="form-control" id="message" rows="4" placeholder="Your message"></textarea>
+                        <div class="input-group has-validation">
+                            <textarea class="form-control" id="message" rows="4" placeholder="Your message" required></textarea>
+                            <div class="invalid-feedback">
+                                Please enter a message.
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Submit Button -->
@@ -427,7 +457,7 @@
         integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
         crossorigin="anonymous"></script>
     <script type="module" src="assets/js/app.js"></script>
-
+    <script type="module" src="assets/js/enquiry.js"></script>
 </body>
 
 </html>
