@@ -32,16 +32,20 @@ enquiryForm.addEventListener("submit", (event) => {
     const lastName = document.getElementById("lastName");
     const email = document.getElementById("email");
     const mobile = document.getElementById("mobile");
-    const books = document.getElementById("books");
+    const book = document.getElementById("book");
     const message = document.getElementById("message");
+
+    console.log(firstName.value, lastName.value, email.value, mobile.value, book.value, message.value);
 
     const alphabeticPattern = /^[a-zA-Z\s]+$/;
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const mobilePattern = /^[0-9]{10}$/;
 
     let isValid = true;
+    const isFirstNameValid = alphabeticPattern.test(firstName.value);
+    console.log(isFirstNameValid);
 
-    if(firstName.value.length < 2 && !alphabeticPattern.test(firstName.value)) {
+    if(firstName.value.length < 2 || !alphabeticPattern.test(firstName.value)) {
        firstName.classList.add("is-invalid");
        isValid = false;
     }
@@ -49,7 +53,7 @@ enquiryForm.addEventListener("submit", (event) => {
         firstName.classList.remove("is-invalid");
     }
 
-    if(lastName.value.length < 2 && !alphabeticPattern.test(lastName.value)) {
+    if(lastName.value.length < 2 || !alphabeticPattern.test(lastName.value)) {
         lastName.classList.add("is-invalid");
         isValid = false;
     }
@@ -73,8 +77,8 @@ enquiryForm.addEventListener("submit", (event) => {
         mobile.classList.remove("is-invalid");
     }
 
-    if(books.value.length < 1) {
-        books.classList.add("is-invalid");
+    if(book.value.length < 1) {
+        book.classList.add("is-invalid");
         isValid = false;
     }
     else {
@@ -90,10 +94,45 @@ enquiryForm.addEventListener("submit", (event) => {
     }
 
     if(isValid) {
-        alert("Form submitted successfully");
-        enquiryForm.submit();
+        fetch("https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjYwNTZjMDYzNzA0Mzc1MjZjNTUzMzUxMzYi_pc", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                firstName: firstName.value,
+                lastName: lastName.value,
+                email: email.value,
+                mobile: mobile.value,
+                book: book.value,
+                message: message.value
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            enquiryForm.reset();
+            const successMessage = document.createElement("div");
+            successMessage.classList.add("alert", "alert-success");
+            successMessage.textContent = "Form submitted successfully";
+            enquiryForm.appendChild(successMessage);
+            setTimeout(() => {
+                successMessage.remove();
+            }, 6000);
+        })
+        .catch(error => {   
+            console.error("Error:", error);
+            const errorMessage = document.createElement("div");
+            errorMessage.classList.add("alert", "alert-danger");
+            errorMessage.textContent = "Error submitting form";
+            enquiryForm.appendChild(errorMessage);
+            setTimeout(() => {
+                errorMessage.remove();
+            }, 6000);
+        });
+        // enquiryForm.submit();
     }
     else {
-        alert("Form is invalid");
+        alert("Correct the errors and try again");
     }
 });
